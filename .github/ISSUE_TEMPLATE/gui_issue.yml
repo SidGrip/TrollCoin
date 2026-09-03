@@ -1,0 +1,10 @@
+name: GUI issue
+description: Report an issue or feature request related to the trollcoin-qt GUI
+labels: [GUI]
+body:
+- type: textarea
+  id: gui-request
+  attributes:
+    label: Report
+  validations:
+    required: true

@@ -1,0 +1,1 @@
+# No fixed seeds on testnet either; see nodes_main.txt.

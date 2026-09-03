@@ -1,0 +1,5 @@
+# TrollCoin does not compile in fixed seed nodes: vFixedSeeds is cleared for
+# every network (src/kernel/chainparams.cpp). Peers come from the DNS seed
+# (dnsfeed.trollcoin.com) and -addnode. If fixed seeds are ever re-enabled,
+# list mainnet nodes here as host:15000 and regenerate chainparamsseeds.h
+# with contrib/seeds/generate-seeds.py.

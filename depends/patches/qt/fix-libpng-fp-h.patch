@@ -1,0 +1,11 @@
+--- a/qtbase/src/3rdparty/libpng/pngpriv.h
++++ b/qtbase/src/3rdparty/libpng/pngpriv.h
+@@ -535,7 +535,7 @@
+     * <fp.h> if possible.
+     */
+ #    if !defined(__MATH_H__) && !defined(__MATH_H) && !defined(__cmath__)
+-#      include <fp.h>
++#      include <math.h>  /* fp.h removed in macOS SDK 26.2+; math.h has the float ops */
+ #    endif
+ #  else
+ #    include <math.h>

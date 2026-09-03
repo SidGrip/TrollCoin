@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: TrollCoin Security Policy
+    url: https://github.com/SidGrip/TrollCoin/security/policy
+    about: How to report a vulnerability privately
+  - name: TrollCoin website
+    url: https://trollcoin.com
+    about: TrollCoin homepage

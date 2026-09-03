@@ -1,0 +1,33 @@
+# /etc/conf.d/trollcoind: config file for /etc/init.d/trollcoind
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/trollcoin/trollcoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/trollcoind"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/trollcoind.pid"
+
+# Where to write trollcoind data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/trollcoind"
+
+# User and group to own trollcoind process
+#BITCOIND_USER="trollcoin"
+#BITCOIND_GROUP="trollcoin"
+
+# Path to bitcoind executable
+#BITCOIND_BIN="/usr/bin/trollcoind"
+
+# Nice value to run trollcoind under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#BITCOIND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for trollcoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+BITCOIND_SIGTERM_TIMEOUT=600

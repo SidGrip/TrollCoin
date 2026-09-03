@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+#
+#  trollcoind The trollcoin more server.
+#
+#
+# chkconfig: 345 80 20
+# description: trollcoind
+# processname: trollcoind
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/trollcoind, see below
+if [ -f /etc/sysconfig/trollcoind ]; then
+        . /etc/sysconfig/trollcoind
+fi
+
+RETVAL=0
+
+prog=trollcoind
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/trollcoind
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/trollcoind}
+
+# bitcoind defaults to /usr/bin/trollcoind, override with BITCOIND_BIN
+bitcoind=${BITCOIND_BIN-/usr/bin/trollcoind}
+
+# bitcoind opts default to -disablewallet, override with BITCOIND_OPTS
+bitcoind_opts=${BITCOIND_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $bitcoind $bitcoind_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog -t600
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac
